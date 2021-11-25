@@ -63,7 +63,6 @@ class UsersController {
         access_token: token,
       });
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }
