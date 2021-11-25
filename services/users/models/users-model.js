@@ -18,6 +18,18 @@ class UsersModel {
     return user;
   }
 
+  static async login(reqBody) {
+    const { email } = reqBody;
+    const db = getDatabase();
+    const usersCollection = db.collection('users');
+
+    const response = await usersCollection.findOne({
+      email,
+    });
+
+    return response;
+  }
+
   static async findUserByEmail(email) {
     const db = getDatabase();
     const usersCollection = db.collection('users');
