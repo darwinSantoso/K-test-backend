@@ -89,7 +89,7 @@ class ProductsController {
         throw { name: 'productNotFound' };
       }
 
-      const updatedProduct = await Product.update(
+      await Product.update(
         {
           name,
           price,
@@ -101,6 +101,12 @@ class ProductsController {
           },
         }
       );
+
+      const updatedProduct = await Product.findOne({
+        where: {
+          id,
+        },
+      });
 
       res.status(200).json(updatedProduct);
     } catch (err) {

@@ -8,7 +8,7 @@ router.get('/:id', ProductsController.getProductById);
 
 router.delete('/', ProductsController.deleteProductById);
 
-// router.put('/:id', ProductsController.updateProductById);
+router.put('/:id', ProductsController.updateProductById);
 
 router.post('/', ProductsController.addNewProduct);
 

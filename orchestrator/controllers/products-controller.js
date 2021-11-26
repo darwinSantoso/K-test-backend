@@ -56,6 +56,22 @@ class ProductsController {
       next(err);
     }
   }
+
+  static async updateProductById(req, res, next) {
+    try {
+      const { id } = req.params;
+
+      const { data: updatedProduct } = await productsAPI({
+        method: 'PUT',
+        url: `/products/${id}`,
+        data: req.body,
+      });
+
+      res.status(200).json(updatedProduct);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = ProductsController;
