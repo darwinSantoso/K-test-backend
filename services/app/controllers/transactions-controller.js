@@ -14,6 +14,7 @@ class TransactionsController {
 
       res.status(200).json(newTransaction);
     } catch (err) {
+      console.log(err);
       next(err);
     }
   }
