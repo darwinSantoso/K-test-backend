@@ -1,0 +1,27 @@
+[
+  {
+    "name": "apple",
+    "price": 5000,
+    "qty": 5
+  },
+  {
+    "name": "grape",
+    "price": 8000,
+    "qty": 10
+  },
+  {
+    "name": "pineapple",
+    "price": 10000,
+    "qty": 3
+  },
+  {
+    "name": "watermelon",
+    "price": 8000,
+    "qty": 15
+  },
+  {
+    "name": "melon",
+    "price": 18000,
+    "qty": 6
+  }
+]
