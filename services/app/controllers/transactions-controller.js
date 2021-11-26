@@ -3,7 +3,6 @@ const { Transaction, sequelize } = require('../models/index');
 class TransactionsController {
   static async addNewTransaction(req, res, next) {
     try {
-      console.log('masuk');
       const { user_id, product_id, amount } = req.body;
 
       const newTransaction = await Transaction.create({
