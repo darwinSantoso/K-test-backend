@@ -13,5 +13,6 @@ router.post('/register', UsersController.register);
 router.use(authentication);
 
 router.use('/transactions', transactions);
+router.use('/payments', payments);
 
 module.exports = router;
