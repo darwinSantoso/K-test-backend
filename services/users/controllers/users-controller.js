@@ -66,6 +66,13 @@ class UsersController {
       next(err);
     }
   }
+
+  static async getUserCrendentials(req, res, next) {
+    try {
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = UsersController;
