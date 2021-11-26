@@ -1,4 +1,5 @@
 const { login } = require('../../services/users/models/users-model');
+const { createToken } = require('../helpers/jwt');
 const { usersAPI } = require('../lib/apis');
 
 class UsersController {
@@ -12,6 +13,7 @@ class UsersController {
 
       res.status(200).json(loginResponse);
     } catch (err) {
+      console.log(err);
       res.status(err.response.status).json(err.response.data);
     }
   }
@@ -27,6 +29,15 @@ class UsersController {
       res.status(200).json(response);
     } catch (err) {
       res.status(err.response.status).json(err.response.data);
+    }
+  }
+
+  static async getUserCredentials(req, res, next) {
+    try {
+      res.status(200).json(req.user);
+    } catch (err) {
+      console.log(err);
+      next(err);
     }
   }
 }
