@@ -1,5 +1,3 @@
-const { login } = require('../../services/users/models/users-model');
-const { createToken } = require('../helpers/jwt');
 const { usersAPI } = require('../lib/apis');
 
 class UsersController {
