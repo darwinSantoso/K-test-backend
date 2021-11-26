@@ -3,14 +3,14 @@ const errorHandler = (err, req, res, next) => {
   let code;
 
   switch (err.name) {
-    case 'wrongAmount':
+    case 'notLoggedIn':
       code = 401;
-      message = 'the amount you inputted is wrong';
+      message = 'you are not logged in';
       break;
 
-    case 'productNotFound':
-      code = 404;
-      message = 'the product does not exist';
+    case 'invalidToken':
+      code = 403;
+      message = 'invalid token';
       break;
 
     default:

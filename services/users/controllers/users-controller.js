@@ -53,7 +53,7 @@ class UsersController {
 
       const payload = {
         id: loginResponse._id,
-        username: loginResponse.username,
+        name: loginResponse.name,
         email: loginResponse.email,
       };
 
@@ -62,6 +62,20 @@ class UsersController {
       res.status(200).json({
         access_token: token,
       });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async findUser(req, res, next) {
+    try {
+      const { email } = req.params;
+
+      const foundUser = await UsersModel.findUserByEmail(email);
+
+      console.log(foundUser);
+
+      res.status(200).json(foundUser);
     } catch (err) {
       next(err);
     }

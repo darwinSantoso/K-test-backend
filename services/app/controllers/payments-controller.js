@@ -1,4 +1,4 @@
-const { Payment, sequelize } = require('../models/index');
+const { Payment, Transaction, sequelize } = require('../models/index');
 
 class PaymentsController {
   static async addNewPayment(req, res, next) {
@@ -10,6 +10,28 @@ class PaymentsController {
         status: 'paid',
         amount,
       });
+
+      const foundTransaction = await Transaction.findOne({
+        where: {
+          id: order_id,
+        },
+      });
+
+      if (Number(amount) !== Number(foundTransaction.amount)) {
+        throw { name: 'wrongAmount' };
+      }
+
+      // change order status
+      await Transaction.update(
+        {
+          status: 'paid',
+        },
+        {
+          where: {
+            id: order_id,
+          },
+        }
+      );
 
       res.status(200).json(newPayment);
     } catch (err) {
