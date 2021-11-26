@@ -13,7 +13,7 @@ const productsAPI = axios.create({
 });
 
 const usersAPI = axios.create({
-  baseURL: 'http://localhost:4002',
+  baseURL: 'https://users-kanggo-test.herokuapp.com',
 });
 
 module.exports = {
