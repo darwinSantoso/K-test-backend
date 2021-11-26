@@ -8,6 +8,11 @@ const errorHandler = (err, req, res, next) => {
       message = 'the amount you inputted is wrong';
       break;
 
+    case 'productNotFound':
+      code = 404;
+      message = 'the product does not exist';
+      break;
+
     default:
       code = 500;
       message = 'Internal Server Error';
